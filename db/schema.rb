@@ -10,11 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_29_084020) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_29_114042) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: :cascade do |t|
+  create_table "events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "location"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.uuid "event_id"
+    t.uuid "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events_users", id: false, force: :cascade do |t|
+    t.uuid "event_id"
+    t.uuid "user_id"
+    t.integer "role", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id", unique: true
+  end
+
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
