@@ -16,6 +16,8 @@ gem 'stimulus-rails', '~> 1.3'
 gem 'turbo-rails', '~> 1.5'
 gem 'tzinfo-data', platforms: %i[ windows jruby ]
 
+gem 'haml', '~> 6.3'
+
 group :development, :test do
   gem 'debug', '~> 1.9', '>= 1.9.1', platforms: %i[ mri windows ]
   gem 'rubocop-rails', '~> 2.23', '>= 2.23.1', require: false
