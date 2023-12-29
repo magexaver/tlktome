@@ -1,10 +1,22 @@
 # frozen_string_literal: true
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
+user = User.create(
+  first_name: FFaker::Name.first_name,
+  last_name: FFaker::Name.last_name,
+  email: FFaker::Internet.email,
+  password: 111_111
+)
+
+10.times do
+  Event.create(
+    name: FFaker::Lorem.word,
+    description: FFaker::Lorem.paragraph,
+    location: FFaker::Address.street_address,
+    start_date: FFaker::Date.forward(10),
+    end_date: FFaker::Date.forward(100)
+  )
+end
+
+Event.find_each do |event|
+  EventsUser.create(event:, user:, role: 2)
+end

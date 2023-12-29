@@ -1,0 +1,13 @@
+.card.mt-4
+  .card-header
+    = event.start_date 
+    |
+    = event.end_date
+    |
+    = event.location
+  .card-body
+    %h5.card-title
+      = event.name
+    %p.card-text
+      = event.description
+    =  link_to 'Show', event_path(event.id), class: 'btn btn-primary', type: 'button'

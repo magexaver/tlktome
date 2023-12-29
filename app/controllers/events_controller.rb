@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  def index; end
-  def show; end
+  def index
+    @events = Events::Index.new(current_user:).call
+  end
+
+  def show
+    @event = current_user.events.find(params[:id])
+  end
+
   def new; end
   def create; end
   def edit; end

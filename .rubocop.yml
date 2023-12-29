@@ -48,9 +48,12 @@ Rails/Output:
     - config/initializers/_REDIS.rb
     - config/initializers/_SIDEKIQ.rb
 Metrics/MethodLength:
+  Max: 12
   Exclude:
     - bin/helpers/docker.rb
     - app/controllers/demo_controller.rb
+    - 'db/migrate/**/*'
+    - 'db/seeds/**/*'
 Style/OptionalBooleanParameter:
   Exclude:
     - bin/helpers/docker.rb

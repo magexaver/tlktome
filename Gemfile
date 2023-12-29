@@ -21,9 +21,11 @@ gem 'haml', '~> 6.3'
 
 group :development, :test do
   gem 'debug', '~> 1.9', '>= 1.9.1', platforms: %i[ mri windows ]
+  gem 'ffaker', '~> 2.23'
   gem 'rubocop-rails', '~> 2.23', '>= 2.23.1', require: false
 end
 
 group :development do
+  gem 'pry', '~> 0.14.2'
   gem 'web-console', '~> 4.2', '>= 4.2.1'
 end

@@ -16,14 +16,14 @@
             TLKTOME
           - if user_signed_in?
             %ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
-              %li
-                %a.nav-link.px-2.text-white{href: '#'} Features
-              %li
-                %a.nav-link.px-2.text-white{href: '#'} Pricing
-              %li
-                %a.nav-link.px-2.text-white{href: '#'} FAQs
-              %li
-                %a.nav-link.px-2.text-white{href: '#'} About
+              -# %li
+              -#   %a.nav-link.px-2.text-white{href: '#'} Features
+              -# %li
+              -#   %a.nav-link.px-2.text-white{href: '#'} Pricing
+              -# %li
+              -#   %a.nav-link.px-2.text-white{href: '#'} FAQs
+              -# %li
+              -#   %a.nav-link.px-2.text-white{href: '#'} About
             .text-end
               = link_to 'Sign out', destroy_user_session_path, class: 'btn btn-danger me-2', type: 'button',  data: { turbo_method: :delete }
           - else 
@@ -32,3 +32,4 @@
               = link_to 'Login', new_user_session_path, class: 'btn btn-outline-light me-2', type: 'button'
               = link_to 'Sign up', new_user_session_path, class: 'btn btn-warning me-2', type: 'button'
     = yield
+    .mt-4

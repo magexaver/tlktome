@@ -1,0 +1,27 @@
+.container
+  .jumbotron
+    %h1.display-4
+      = @event.name
+    %p.lead
+      = @event.description
+    %p.lead
+      = @event.location
+    %p.lead
+      = @event.start_date
+    %p.lead
+      = @event.end_date
+    %hr.my-4/
+    %p.lead Participants
+    =  link_to 'Invite a participant', event_path(@event.id), class: 'btn btn-primary', type: 'button'
+    %table.table
+      %thead
+        %tr
+          %th{scope: "col"} #
+          %th{scope: "col"} Name
+          %th{scope: "col"} Role
+      %tbody
+        - @event.users.each_with_index do |user, index|
+          %tr
+            %th{scope: "row"}= index + 1
+            %td= "#{user.first_name} #{user.last_name}"
+            %td= EventsUser.find_by(user: user, event: @event).role

@@ -20,8 +20,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_29_114042) do
     t.string "location"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.uuid "event_id"
-    t.uuid "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,6 +34,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_29_114042) do
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
