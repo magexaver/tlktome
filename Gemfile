@@ -16,6 +16,7 @@ gem 'stimulus-rails', '~> 1.3'
 gem 'turbo-rails', '~> 1.5'
 gem 'tzinfo-data', platforms: %i[ windows jruby ]
 
+gem 'devise', '~> 4.9', '>= 4.9.3'
 gem 'haml', '~> 6.3'
 
 group :development, :test do

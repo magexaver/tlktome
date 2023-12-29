@@ -69,3 +69,6 @@ Style/GlobalVars:
 Metrics/BlockLength:
   Exclude:
     - config/environments/development.rb
+Layout/LineLength:
+  Exclude:
+    - config/initializers/devise.rb

@@ -1,12 +1,34 @@
 !!!
 %html
   %head
-    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
     %title Tlktome
-    %meta{content: "width=device-width,initial-scale=1", name: "viewport"}/
+    %meta{content: 'width=device-width,initial-scale=1', name: 'viewport'}/
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag "application", "data-turbo-track": "reload"
-    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+    = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
   %body
+    %header.p-3.text-bg-dark
+      .container
+        .d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-lg-end
+          %a.navbar-brand{href: '#'}
+            TLKTOME
+          - if user_signed_in?
+            %ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
+              %li
+                %a.nav-link.px-2.text-white{href: '#'} Features
+              %li
+                %a.nav-link.px-2.text-white{href: '#'} Pricing
+              %li
+                %a.nav-link.px-2.text-white{href: '#'} FAQs
+              %li
+                %a.nav-link.px-2.text-white{href: '#'} About
+            .text-end
+              = link_to 'Sign out', destroy_user_session_path, class: 'btn btn-danger me-2', type: 'button',  data: { turbo_method: :delete }
+          - else 
+            %ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
+            .text-end
+              = link_to 'Login', new_user_session_path, class: 'btn btn-outline-light me-2', type: 'button'
+              = link_to 'Sign up', new_user_session_path, class: 'btn btn-warning me-2', type: 'button'
     = yield
