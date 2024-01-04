@@ -12,7 +12,7 @@
       = @event.end_date
     %hr.my-4/
     %p.lead Participants
-    =  link_to 'Invite a participant', event_path(@event.id), class: 'btn btn-primary', type: 'button'
+    =  link_to 'Invite a participant', event_path(@event.id), class: 'btn', type: 'button', style: 'border: 1px solid'
     %table.table
       %thead
         %tr

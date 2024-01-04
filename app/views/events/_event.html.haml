@@ -1,13 +1,13 @@
 .card.mt-4
-  .card-header
+  .card-header{ style: 'border: 1px solid' }
     = event.start_date 
     |
     = event.end_date
     |
     = event.location
-  .card-body
+  .card-body{ style: 'border: 1px solid' }
     %h5.card-title
       = event.name
     %p.card-text
       = event.description
-    =  link_to 'Show', event_path(event.id), class: 'btn btn-primary', type: 'button'
+    =  link_to 'Show', event_path(event.id), class: 'btn', type: 'button', style: 'border: 1px solid'

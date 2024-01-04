@@ -8,28 +8,36 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
+    %link{href: 'https://fonts.googleapis.com/css?family=Montserrat:400,500,800', rel: 'stylesheet'}/
   %body
-    %header.p-3.text-bg-dark
+    %header.p-3{style: 'border: 1px solid'}
       .container
         .d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-lg-end
           %a.navbar-brand{href: '#'}
             TLKTOME
           - if user_signed_in?
             %ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
-              -# %li
-              -#   %a.nav-link.px-2.text-white{href: '#'} Features
-              -# %li
-              -#   %a.nav-link.px-2.text-white{href: '#'} Pricing
-              -# %li
-              -#   %a.nav-link.px-2.text-white{href: '#'} FAQs
-              -# %li
-              -#   %a.nav-link.px-2.text-white{href: '#'} About
+              %li
+                %a.nav-link.px-2.text-white{href: '#'} Features
+              %li
+                %a.nav-link.px-2.text-white{href: '#'} Pricing
+              %li
+                %a.nav-link.px-2.text-white{href: '#'} FAQs
+              %li
+                %a.nav-link.px-2.text-white{href: '#'} About
             .text-end
-              = link_to 'Sign out', destroy_user_session_path, class: 'btn btn-danger me-2', type: 'button',  data: { turbo_method: :delete }
+              = link_to '+', destroy_user_session_path, class: 'btn me-2', type: 'button',  data: { turbo_method: :delete }, style: 'border: 1px solid'
+              = link_to 'Sign out', destroy_user_session_path, class: 'btn me-2', type: 'button',  data: { turbo_method: :delete }, style: 'border: 1px solid'
           - else 
             %ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
             .text-end
-              = link_to 'Login', new_user_session_path, class: 'btn btn-outline-light me-2', type: 'button'
-              = link_to 'Sign up', new_user_session_path, class: 'btn btn-warning me-2', type: 'button'
-    = yield
+              = link_to 'Login', new_user_session_path, class: 'btn me-2', type: 'button', style: 'border: 1px solid'
+              = link_to 'Sign up', new_user_session_path, class: 'btn me-2', type: 'button', style: 'border: 1px solid'
+    .container
+      = yield
     .mt-4
+
+:css
+  body {
+    font-family: 'Montserrat', sans-serif;
+  }
