@@ -1,2 +1,23 @@
 .container
   = render partial: :event, collection: @events
+  .mt-4
+    .d-flex.justify-content-center
+      != pagy_bootstrap_nav(@pagy) if @pagy.pages > 1
+
+:css
+  .page-link {
+    border-color: black;
+    color: black;
+  }
+  .pagination {
+      border-color: black;
+      background-color: white;
+      color: black;
+  }
+
+  /* Customize other elements as needed */
+  .pagination .page-item.active .page-link {
+      border-color: black;
+      background-color: white;
+      color: black;
+  }

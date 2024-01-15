@@ -2,7 +2,7 @@
 
 class EventsController < ApplicationController
   def index
-    @events = Events::Index.new(current_user:).call
+    @pagy, @events = pagy(Events::Index.new(current_user:).call)
   end
 
   def show

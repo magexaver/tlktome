@@ -18,6 +18,7 @@ gem 'tzinfo-data', platforms: %i[ windows jruby ]
 
 gem 'devise', '~> 4.9', '>= 4.9.3'
 gem 'haml', '~> 6.3'
+gem 'pagy', '~> 6.2'
 
 group :development, :test do
   gem 'debug', '~> 1.9', '>= 1.9.1', platforms: %i[ mri windows ]
